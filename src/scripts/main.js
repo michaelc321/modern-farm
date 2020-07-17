@@ -1,26 +1,11 @@
-import {createPlan} from "./plan.js"
-import {createAsparagues} from "./seeds/asparagues.js"
-import {createCorn} from "./seeds/corn.js"
-import {createPotato} from "./seeds/potato.js"
-import {createSoybean} from "./seeds/soybean.js"
-import {createSunflower} from "./seeds/sunflower.js"
-import {createWheat} from "./seeds/wheat.js"
-import {usePlants} from "./fields.js"
+import { createPlan } from "./plan.js";
+import { usePlants } from "./fields.js";
+import { plantSeeds } from "./tractor.js";
+import { harvestPlants } from "./harvester.js";
+import { catalog } from "./catalog.js";
 
-const asparagues = createAsparagues()
-const corn = createCorn()
-const potato = createPotato()
-const soybean = createSoybean()
-const sunflower = createSunflower()
-const wheat = createWheat()
 const yearlyPlan = createPlan()
-const addPlants = usePlants()
-
-console.log(asparagues)
-console.log(corn)
-console.log(potato)
-console.log(soybean)
-console.log(sunflower)
-console.log(wheat)
-console.log(yearlyPlan)
-console.log(addPlants)
+const seedToPlant = plantSeeds(yearlyPlan)
+const plantArr = usePlants()
+const seedsArr = harvestPlants(plantArr)
+catalog(seedsArr)
